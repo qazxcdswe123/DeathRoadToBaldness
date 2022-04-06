@@ -1,0 +1,18 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    freopen("3210.in", "r", stdin)
+    int n;
+    cin >> n;
+    string a, b;
+    while (n--)
+    {
+        cin.ignore();
+        cin >> a;
+        cin >> b;
+
+    }
+}
