@@ -5,7 +5,7 @@
 
 using namespace std;
 
-Studnet::Student(int id, string name, char sex, string birthday, string homeAddress)
+Student::Student(int id, string name, char sex, string birthday, string homeAddress)
     : id(id), name(name), sex(sex), birthday(birthday), homeAddress(homeAddress) {}
 
 Student::Student(const Student &rhs)
