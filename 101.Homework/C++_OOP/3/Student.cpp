@@ -3,12 +3,11 @@
 
 #include "Student.h"
 
-using namespace std;
 
 Student::Student(int id, string name, char sex, string birthday, string homeAddress)
     : id(id), name(name), sex(sex), birthday(birthday), homeAddress(homeAddress) {}
 
-Student::Student(const Student &rhs)
+Student::Student(const Student &rhs) // copy constructor
 {
     id = rhs.id;
     name = rhs.name;
@@ -23,18 +22,4 @@ void Student::print() const
          << "\nBirthday: " << birthday << "\nHomeAddress: " << homeAddress;
 }
 
-Student Student::create()
-{
-    int id, string name, char sex, string birthday, string homeAddress;
-    cout << "Please Input Your ID: ";
-    cin >> id;
-    cout << "Please Input Your Name: ";
-    cin >> name;
-    cout << "Please Input Your Gender: ";
-    cin >> sex;
-    cout << "Please Input Your Birthday: ";
-    cin >> birthday;
-    cout << "Please Input Your HomeAddress: ";
-    cin >> homeAddress;
-    Student(id, name, sex, birthday, homeAddress);
-}
+

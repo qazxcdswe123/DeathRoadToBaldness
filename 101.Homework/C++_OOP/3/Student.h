@@ -19,11 +19,12 @@ private:
     string homeAddress;
 
 public:
-    Student(int id = -1, string name = "ERROR", char sex = '?', string birthday = "NULL", string homeAddress = "NULL");
+    // Student(int id = -1, string name = "ERROR", char sex = '?', string birthday = "NULL", string homeAddress = "NULL"); // constructor with default value
+	Student();
+	Student(int id, string name, char sex, string birthday, string homeAddress); // 
     ~Student();
-    Student(const Student &s);
-    void print();
-    Student create();
+    Student(const Student &rhs); // copy constructor
+    void print() const; // print info
 };
 
 #endif // STUDENT_H
