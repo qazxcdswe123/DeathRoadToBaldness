@@ -5,6 +5,7 @@
 #ifndef STUDENT_H
 #define STUDENT_H
 
+#include <iostream>
 #include <string>
 
 using namespace std;
@@ -21,8 +22,8 @@ private:
 public:
     // Student(int id = -1, string name = "ERROR", char sex = '?', string birthday = "NULL", string homeAddress = "NULL"); // constructor with default value
 	Student();
-	Student(int id, string name, char sex, string birthday, string homeAddress); // 
-    ~Student();
+	Student(int id, string name, char sex, string birthday, string homeAddress); 
+    virtual ~Student() = default;
     Student(const Student &rhs); // copy constructor
     void print() const; // print info
 };

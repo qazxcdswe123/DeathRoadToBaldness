@@ -1,11 +1,24 @@
 #include <string>
-#include <iostream>
 
 #include "Student.h"
 
+Student::Student()
+{
+	this->name = "null";
+	this->id = -1;
+	this->birthday = "null";
+	this->sex = 'x';
+	this->homeAddress = "null";
+}
 
 Student::Student(int id, string name, char sex, string birthday, string homeAddress)
-    : id(id), name(name), sex(sex), birthday(birthday), homeAddress(homeAddress) {}
+{
+	this->id = id;
+	this->name = name;
+	this->sex = sex;
+	this->birthday = birthday;
+	this->homeAddress = homeAddress;
+}
 
 Student::Student(const Student &rhs) // copy constructor
 {
