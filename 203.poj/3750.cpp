@@ -1,57 +1,32 @@
 #include <iostream>
-// #include <vector>
+#include <vector>
 #include <string>
 
 using namespace std;
 
-// #define int long long
-
-struct circle
-{
-    string data;
-    circle *next;
-};
-
-circle *newNode(string data)
-{
-    circle *temp = new circle;
-    temp->data = data;
-    temp->next = NULL;
-    return temp;
-}
-
-void insert(circle *&head, string data)
-{
-    circle *temp = newNode(data);
-    temp->next = head;
-    head = temp;
-}
-
-void deleteNode(circle *&head, string data)
-{
-    circle *temp = head;
-    if (temp->data == data)
-    {
-        head = temp->next;
-        delete temp;
-        return;
-    }
-    while (temp->next != NULL)
-    {
-        if (temp->next->data == data)
-        {
-            circle *temp2 = temp->next;
-            temp->next = temp->next->next;
-            delete temp2;
-            return;
-        }
-        temp = temp->next;
-    }
-}
-
 int main()
 {
-    // freopen("data.in", "r", stdin);
-    int n;
-    cin >> n;
+	freopen("input.txt", "r", stdin);
+	int n;
+	cin >> n;
+	vector<string> v(n);
+	for (int i = 0; i < n; i++)
+	{
+		cin >> v[i];
+	}
+	int a ,b;
+	cin >> a;
+	cin.ignore();
+	cin >> b;
+	int index = a + b - 2;
+	while (v.size() != 0)
+	{
+		while (index >= v.size())
+		{
+			index = index - v.size();
+		}
+		cout << v[index] << endl;
+		v.erase(v.begin() + index);
+		index +=  b - 1;
+	}
 }
