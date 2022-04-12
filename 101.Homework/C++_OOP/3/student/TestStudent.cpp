@@ -6,8 +6,8 @@ int main()
     Student s2(1, "Tom", 'M', "1999-01-01", "Beijing"); // parameterized value
     Student s3(s2); // copy constructor
     s1.print();
-	std::cout << std::endl;
+	cout << endl;
     s2.print();
-	std::cout << std::endl;
+	cout << endl;
     s3.print();
 }
