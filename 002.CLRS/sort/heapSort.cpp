@@ -75,12 +75,6 @@ int heapMaximum(int heap[])
 	return heap[0];
 }
 
-// int heapExtractMax(int heap[])
-// {
-// 	int length = sizeof(heap) / sizeof(heap[0]);
-// 	if ()
-// }
-
 int main(void)
 {
 	int heap[10] = {16, 4, 10, 14, 7, 9, 3, 2, 8, 1};
