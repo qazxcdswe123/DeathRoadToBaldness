@@ -4,8 +4,8 @@ using namespace std;
 
 int main()
 {
-    int a, b, i;
-    cin >> a >> b >> i;
-    if ((i * b / a) / i == (double)b / (double)a)
-        cout << "Yes" << endl;
+	string a, b;
+	a = "11";
+	b = "12";
+	cout << a > b << endl;
 }

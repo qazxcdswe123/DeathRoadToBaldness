@@ -8,7 +8,7 @@ struct node
 {
 	string msg;
 	string msg1;
-	string val;
+	int val;
 	bool operator<(const node& other) const
 	{
 		return val > other.val;
