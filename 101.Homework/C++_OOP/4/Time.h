@@ -3,9 +3,10 @@
 #ifndef TIME_H
 #define TIME_H
 
-# include <iostream>
+#include <iostream>
 
-class Time {
+class Time
+{
 private:
 	friend int operator-(const Time &t1, const Time &t2);
 	friend std::ostream &operator<<(std::ostream &os, const Time &t);
@@ -18,15 +19,18 @@ private:
 	int second;
 
 public:
-	Time(int ss = 0);
+	// add explicit to prevent implicit conversion
+	explicit Time(int ss = 0);
 
-	Time &operator++();// 前缀++
+	Time &operator++(); // 前缀++
 
-	Time operator++(int x);// 后缀++
+	// add const to postfix ++
+	const Time operator++(int x); // 后缀++
 
 	Time &operator--(); // 前缀--
 
-	Time operator--(int x); // 后缀--
+	// add const to postfix --
+	const Time operator--(int x); // 后缀--
 
 	Time &operator+=(const Time &other);
 

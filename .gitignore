@@ -10,3 +10,5 @@
 # editor file
 .idea
 .vscode
+
+!Makefile
