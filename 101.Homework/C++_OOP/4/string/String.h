@@ -1,11 +1,12 @@
+#include <iostream>
+
 class String
 {
-
     friend String operator+(const String &s1, const String &s2);
 
-    friend ostream &operator<<(ostream &os, const String &obj);
+    friend std::ostream &operator<<(std::ostream &os, const String &obj);
 
-    friend istream &operator>>(istream &is, String &obj);
+    friend std::istream &operator>>(std::istream &is, String &obj);
 
     friend bool operator>(const String &s1, const String &s2);
 
