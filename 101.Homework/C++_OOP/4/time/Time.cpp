@@ -98,7 +98,7 @@ int operator-(const Time &t1, const Time &t2)
 
 std::ostream &operator<<(std::ostream &os, const Time &t)
 {
-    // unix timestamp
+    // Unix timestamp
     // GMT + 0
     int seconds = t.second;
     int daysInMonth[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
@@ -154,7 +154,6 @@ bool operator>(const Time &t1, const Time &t2)
 {
     return (t1.second > t2.second);
 }
-
 bool operator>=(const Time &t1, const Time &t2)
 {
     return (t1.second >= t2.second);
