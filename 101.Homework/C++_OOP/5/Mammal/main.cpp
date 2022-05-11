@@ -1,5 +1,4 @@
 #include "Doggy.h"
-#include "Dog.h"
 
 int main(void)
 {
