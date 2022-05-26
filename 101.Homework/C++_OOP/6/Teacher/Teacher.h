@@ -8,12 +8,10 @@ class Teacher
 {
 private:
     int classPerMonth;
-    int salary;
 
 public:
-    Teacher(int classPerMonth, int salary);
-    virtual void setSalary();
-    virtual int getSalary() const;
+    Teacher(int classPerMonth);
+    int getClassPerMonth() const;
     virtual int getTotalSalary() const = 0;
     virtual ~Teacher() = default;
 };
@@ -25,7 +23,7 @@ private:
     static int salaryPerClass;
 
 public:
-    Professor(int classPerMonth, int salary);
+    Professor(int classPerMonth, int baseSalary, int salaryPerClass);
     int getTotalSalary() const override final;
     ~Professor() = default;
 };
@@ -37,7 +35,7 @@ private:
     static int salaryPerClass;
 
 public:
-    AssociateProfessor(int classPerMonth, int salary);
+    AssociateProfessor(int classPerMonth, int baseSalary, int salaryPerClass);
     int getTotalSalary() const override final;
     ~AssociateProfessor() = default;
 };
@@ -49,7 +47,7 @@ private:
     static int salaryPerClass;
 
 public:
-    Lecturer(int classPerMonth, int salary);
+    Lecturer(int classPerMonth, int baseSalary, int salaryPerClass);
     int getTotalSalary() const override final;
     ~Lecturer() = default;
 };
