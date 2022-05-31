@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <stack>
 #include <iostream>
 
 using namespace std;
@@ -12,16 +13,10 @@ struct ip
 
 bool cmp(ip &a, ip &b) { return (a.w > b.w); }
 
-// bool cmp(ip a, ip b) {
-//   if (a.w == b.w)
-//     return a.s > b.s;
-
-//   return a.w < b.w;
-// }
-
 struct dp
 {
-	int pre;
+	int pre = -1;
+	int preIndex;
 	int max = 0;
 } dpt[1001];
 
@@ -34,32 +29,122 @@ int main()
 		i++;
 	}
 	sort(input + 1, input + 1001, &cmp);
-	dpt[1].pre = 1;
+	dpt[1].pre = 0;
 	int j, k;
-	for (j = 1; j < i; j++)
+	for (j = 1; j < i; j++) // start with 1
 	{
 		dpt[j].max = 1;
-		for (k = 1; k <= j; k++)
+		for (k = 1; k < j; k++)
 		{
-			if (input[k].s < input[j].s)
+			if (input[j].s > input[k].s)
 			{
 				if (dpt[j].max < dpt[k].max + 1)
 				{
 					dpt[j].max = dpt[k].max + 1;
 					dpt[j].pre = input[k].num;
+					dpt[j].preIndex = k;
 				}
 			}
 		}
 	}
-	// for (j = 0; j < i; j++) {
-	//   dpt[j].max = 1;
-	//   for (k = 0; k < j; k++) {
-	//     if (input[k].s <= input[j].s) {
-	//       dpt[j].max = max(dpt[k].max + 1, dpt[j].max);
-	//     }
-	//   }
-	//   if (dpt[k].max > dpt[j].max) {
-	//     dpt[k].pre = j;
-	//   }
-	// }
+	int max = 1;
+	int index = 1;
+	for (int l = 1; l < i; l++)
+	{
+		if (dpt[l].max > max)
+		{
+			max = dpt[l].max;
+			index = l;
+		}
+	}
+	cout << max << '\n';
+	stack<int> st;
+	st.push(index);
+	while (index != 1)
+	{
+		st.push(dpt[index].pre);
+		// cout << dpt[index].pre << '\n';
+		index = dpt[index].preIndex;
+	}
+	while (!st.empty())
+	{
+		cout << st.top() << '\n';
+		st.pop();
+	}
 }
+
+// #include <bits/stdc++.h>
+
+// using namespace std;
+
+// struct mouse
+// {
+// 	int weight, speed, id;
+// };
+
+// struct mouse mice[1005];
+
+// bool cmp(mouse a, mouse b)
+// {
+// 	if (a.weight == b.weight)
+// 		return a.speed > b.speed;
+
+// 	return a.weight < b.weight;
+// }
+
+// int cont[1005] = {0};
+// int path[1005] = {0};
+
+// void output(int path[], int pos)
+// {
+// 	if (pos == 0)
+// 		return;
+
+// 	output(path, path[pos]);
+// 	printf("%d\n", mice[pos].id);
+// }
+
+// int main()
+// {
+// 	int i = 1;
+
+// 	freopen("input.in", "r", stdin);
+// 	while (cin >> mice[i].speed >> mice[i].weight)
+// 	{
+// 		mice[i].id = i;
+// 		i++;
+// 	}
+
+// 	sort(mice + 1, mice + i + 1, cmp);
+// 	cont[1] = 1;
+// 	for (int n = 1; n < i; n++)
+// 	{
+// 		for (int j = 1; j < n; j++)
+// 		{
+// 			if (mice[n].weight > mice[j].weight && mice[n].speed < mice[j].speed)
+// 				if (cont[n] < cont[j])
+// 				{
+// 					cont[n] = cont[j];
+// 					path[n] = j;
+// 				}
+// 		}
+// 		cont[n]++;
+// 	}
+
+// 	int max = 0;
+// 	int pos;
+
+// 	for (int n = 0; n < i; n++)
+// 	{
+// 		if (cont[n] > max)
+// 		{
+// 			max = cont[n];
+// 			pos = n;
+// 		}
+// 	}
+
+// 	cout << max << '\n';
+// 	output(path, pos);
+
+// 	return 0;
+// }

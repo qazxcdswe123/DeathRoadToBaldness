@@ -52,7 +52,6 @@ int main()
                     }
                 }
             }
-            // cin.ignore();
         }
         int ans = bfs(st);
         if (ans == -1)
@@ -69,7 +68,7 @@ int main()
 
 bool canPlace(int x, int y, int z)
 {
-    if (x >= 0 && x <= L && y >= 0 && y <= R && z >= 0 && z <= C)
+    if (x >= 0 && x < L && y >= 0 && y < R && z >= 0 && z < C)
         return true;
     return false;
 }
