@@ -1,4 +1,5 @@
 #include <iostream>
+#include <map>
 #include <algorithm>
 #include <string>
 
@@ -12,6 +13,8 @@ int matrix[5][5] = {
     {-3, -4, -2, -1, -999999}};
 
 int dp[101][101] = {0};
+
+map<char, int> mp = {{'A', 0}, {'C', 1}, {'G', 2}, {'T', 3}, {'-', 4}};
 
 int main()
 {
@@ -29,14 +32,7 @@ int main()
         {
             for (int j = 1; j < len2; j++)
             {
-                if (s1[i - 1] == s2[i - 1])
-                {
-                    dp[i][j] = dp[i - 1][j - 1] + 1;
-                }
-                else
-                {
-                    dp[i][j] = max(dp[i][j - 1], dp[i - 1][j]);
-                }
+                dp[i][j] = max(dp[i - 1][j - 1] + matrix[mp[s1[j]]][mp[s2[j]]], dp[i - 1][j] + matrix)
             }
         }
     }

@@ -1,0 +1,3 @@
+lines: 9
+words: 406
+chars: 2765
