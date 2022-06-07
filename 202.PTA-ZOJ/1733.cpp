@@ -19,9 +19,11 @@ int dp[1001][1001];
 //   }
 // }
 
-int main() {
+int main()
+{
   // freopen("input.in", "r", stdin);
-  while (cin >> a >> b) {
+  while (cin >> a >> b)
+  {
     int l1 = a.length();
     int l2 = b.length();
 
@@ -30,8 +32,10 @@ int main() {
     for (int i = 0; i <= l2; i++)
       dp[0][i] = 0;
 
-    for (int i = 1; i <= l1; i++) {
-      for (int j = 1; j <= l2; j++) {
+    for (int i = 1; i <= l1; i++)
+    {
+      for (int j = 1; j <= l2; j++)
+      {
         if (a[i - 1] == b[j - 1])
           dp[i][j] = dp[i - 1][j - 1] + 1;
         else

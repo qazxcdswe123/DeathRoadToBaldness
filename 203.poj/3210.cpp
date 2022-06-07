@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-    freopen("data.in", "r", stdin)
+    freopen("data.in", "r", stdin);
     int n;
     cin >> n;
     string a, b;
@@ -13,6 +13,5 @@ int main()
         cin.ignore();
         cin >> a;
         cin >> b;
-
     }
 }

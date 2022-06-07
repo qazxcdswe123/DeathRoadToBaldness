@@ -14,7 +14,7 @@ int main()
 	{
 		cin >> v[i];
 	}
-	int a ,b;
+	int a, b;
 	cin >> a;
 	cin.ignore();
 	cin >> b;
@@ -27,6 +27,6 @@ int main()
 		}
 		cout << v[index] << endl;
 		v.erase(v.begin() + index);
-		index +=  b - 1;
+		index += b - 1;
 	}
 }
