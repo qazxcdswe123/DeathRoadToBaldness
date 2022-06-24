@@ -1,3 +1,6 @@
+#ifndef _RABBIT_H_
+#define _RABBIT_H_
+
 #include "living.h"
 
 class RabbitUnit : public LivingUnit
@@ -17,3 +20,5 @@ public:
 protected:
 	int age;
 };
+
+#endif // _RABBIT_H_

@@ -1,3 +1,6 @@
+#ifndef _GRASS_H_
+#define _GRASS_H_
+
 #include "living.h"
 
 class GrassUnit : public LivingUnit
@@ -14,3 +17,5 @@ public:
 	State nextState();
 	void round();
 };
+
+#endif // _GRASS_H_

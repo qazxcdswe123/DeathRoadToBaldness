@@ -1,21 +1,20 @@
 #include <iostream>
+
 using namespace std;
 
 #include "basic.h"
-
 #include "empty.h"
 #include "grass.h"
 #include "rabbit.h"
 #include "fox.h"
 #include "human.h"
-
 #include "world.h"
 
 World::World(int index)
 {
 	curMap = new Map[N];
 
-	initWorld(); //初始化世界，默认为全空
+	initWorld(); //初始化
 
 	switch (index)
 	{
@@ -172,10 +171,6 @@ void World::update()
 		for (int j = 1; j < N - 1; j++)
 		{
 			LivingUnit *p = locate(i, j);
-
-			int m = (*curMap)[i][j];
-			int n = p->nextState();
-
 			(*curMap)[i][j] = p->nextState();
 		}
 }
@@ -190,19 +185,19 @@ void World::display()
 			switch ((*curMap)[i][j])
 			{
 			case 0:
-				cout << color(FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED) << (*curMap)[i][j];
+				cout << (*curMap)[i][j];
 				break;
 			case 1:
-				cout << color(FOREGROUND_GREEN) << (*curMap)[i][j];
+				cout << (*curMap)[i][j];
 				break;
 			case 2:
-				cout << color(FOREGROUND_RED | FOREGROUND_GREEN) << (*curMap)[i][j];
+				cout << (*curMap)[i][j];
 				break;
 			case 3:
-				cout << color(FOREGROUND_RED) << (*curMap)[i][j];
+				cout << (*curMap)[i][j];
 				break;
 			case 4:
-				cout << color(FOREGROUND_BLUE) << (*curMap)[i][j];
+				cout << (*curMap)[i][j];
 				break;
 			}
 		}
@@ -229,6 +224,8 @@ LivingUnit *World::locate(int row, int colum)
 		break;
 	case HUMAN:
 		return (new HumanUnit(this, row, colum));
+		break;
+	default:
 		break;
 	}
 }

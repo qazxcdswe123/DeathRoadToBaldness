@@ -1,3 +1,6 @@
+#ifndef _EMPTY_H_
+#define _EMPTY_H_
+
 #include "living.h"
 
 class EmptyUnit : public LivingUnit
@@ -14,3 +17,5 @@ public:
 	State nextState();
 	void round();
 };
+
+#endif // _EMPTY_H_

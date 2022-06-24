@@ -1,3 +1,6 @@
+#ifndef _HUMAN_H_
+#define _HUMAN_H_
+
 #include "living.h"
 
 class HumanUnit : public LivingUnit
@@ -16,3 +19,5 @@ public:
 protected:
 	int age;
 };
+
+#endif // _HUMAN_H_

@@ -41,4 +41,4 @@ private:
 	Map *curMap; //当前的世界地图
 };
 
-#endif
+#endif // _WORLD_H_

@@ -1,5 +1,7 @@
-#include "basic.h"
+#ifndef _SCENE_H
+#define _SCENE_H
 
+#include "basic.h"
 #include "world.h"
 
 class Scene
@@ -13,3 +15,5 @@ public:
 private:
 	World *world;
 };
+
+#endif // _SCENE_H

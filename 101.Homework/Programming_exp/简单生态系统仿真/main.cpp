@@ -1,6 +1,5 @@
 //一个简单的生态仿真系统
 
-#include <iostream>
 using namespace std;
 
 #include "scene.h"

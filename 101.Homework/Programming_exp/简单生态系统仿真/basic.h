@@ -48,4 +48,4 @@ using namespace std;
 //     return i;
 // }
 
-#endif
+#endif // _BASIC_H_

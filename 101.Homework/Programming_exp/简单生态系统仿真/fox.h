@@ -1,3 +1,6 @@
+#ifndef _FOX_H_
+#define _FOX_H_
+
 #include "living.h"
 
 class FoxUnit : public LivingUnit
@@ -16,3 +19,5 @@ public:
 protected:
 	int age;
 };
+
+#endif // _FOX_H_

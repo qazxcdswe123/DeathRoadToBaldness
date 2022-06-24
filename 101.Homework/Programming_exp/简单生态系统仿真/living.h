@@ -18,4 +18,4 @@ protected:
 	int sum[STATES]; //所在位置附近的各类生物数目统计
 };
 
-#endif
+#endif // _LIVING_H_
