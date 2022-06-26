@@ -185,15 +185,19 @@ void World::display()
 			switch ((*curMap)[i][j])
 			{
 			case 0:
+				// cout << color(FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED) << (*curMap)[i][j];
 				cout << (*curMap)[i][j];
 				break;
 			case 1:
+				// cout << color(FOREGROUND_GREEN) << (*curMap)[i][j];
 				cout << (*curMap)[i][j];
 				break;
 			case 2:
+				// cout << color(FOREGROUND_RED | FOREGROUND_GREEN) << (*curMap)[i][j];
 				cout << (*curMap)[i][j];
 				break;
 			case 3:
+				// cout << color(FOREGROUND_RED) << (*curMap)[i][j];
 				cout << (*curMap)[i][j];
 				break;
 			case 4:
