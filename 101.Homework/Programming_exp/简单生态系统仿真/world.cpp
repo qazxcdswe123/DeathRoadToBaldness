@@ -200,7 +200,7 @@ void World::display()
 				// cout << color(FOREGROUND_RED) << (*curMap)[i][j];
 				cout << (*curMap)[i][j];
 				break;
-			case 4:
+			case 4: // human
 				cout << (*curMap)[i][j];
 				break;
 			}
