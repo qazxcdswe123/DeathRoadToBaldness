@@ -242,6 +242,8 @@ int isAsciiDigit(int x)
  */
 int conditional(int x, int y, int z)
 {
+	int a = ~!!x + 1;
+	return (a & y) | (~a & z);
 }
 /*
  * isLessOrEqual - if x <= y  then return 1, else return 0
@@ -252,7 +254,12 @@ int conditional(int x, int y, int z)
  */
 int isLessOrEqual(int x, int y)
 {
-	return 2;
+	int signX = x >> 31 & 1;
+	int signY = y >> 31 & 1;
+	int signX_sub_Y = ((y + ~x + 1) >> 31) & 1;
+	// (x < 0 && y >= 0) || (x )
+	int ans = (signX & ~signY) | (!(signX ^ signY) & !signX_sub_Y);
+	return ans;
 }
 // 4
 /*
@@ -265,7 +272,11 @@ int isLessOrEqual(int x, int y)
  */
 int logicalNeg(int x)
 {
-	return 2;
+	int signBit = (x >> 31) & 1;
+	int TMAX = ~(1 << 31);
+	int overflow = TMAX + x;
+	int newSignBit = (overflow >> 31) & 1;
+	return ((signBit ^ 1) & (newSignBit ^ 1));
 }
 /* howManyBits - return the minimum number of bits required to represent x in
  *             two's complement
@@ -335,5 +346,5 @@ unsigned floatPower2(int x)
 
 // int main()
 // {
-//    isAsciiDigit(0x3c);
+//   isLessOrEqual(0x80000000, 0x7fffffff);
 // }
