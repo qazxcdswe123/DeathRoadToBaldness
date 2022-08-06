@@ -292,7 +292,15 @@ int logicalNeg(int x)
  */
 int howManyBits(int x)
 {
-	return 0;
+	int n = 0;
+	x = x ^ (x >> 31);
+	n = n + ((!!(x >> (n + 16))) << 4);
+	n = n + ((!!(x >> (n + 8))) << 3);
+	n = n + ((!!(x >> (n + 4))) << 2);
+	n = n + ((!!(x >> (n + 2))) << 1);
+	n = n + ((!!(x >> (n + 1))));
+	n = n + (x >> n);
+	return n + 1;
 }
 // float
 /*
@@ -308,7 +316,19 @@ int howManyBits(int x)
  */
 unsigned floatScale2(unsigned uf)
 {
-	return 2;
+	unsigned int inf_or_nan = 0x7f800000;
+	unsigned int sign = uf & 0x80000000, frac = uf & 0x007fffff, exp = uf & 0x7f800000;
+	// 0 or denor
+	if (exp == 0)
+		return sign | uf << 1;
+	// inf or nan
+	if (exp == 0x7f800000)
+		return uf;
+	// nor
+	exp += 0x00800000;
+	if (exp == 0x7f800000)
+		frac = 0;
+	return frac | sign | exp;
 }
 /*
  * floatFloat2Int - Return bit-level equivalent of expression (int) f
@@ -324,7 +344,6 @@ unsigned floatScale2(unsigned uf)
  */
 int floatFloat2Int(unsigned uf)
 {
-	return 2;
 }
 /*
  * floatPower2 - Return bit-level equivalent of the expression 2.0^x
@@ -346,5 +365,5 @@ unsigned floatPower2(int x)
 
 // int main()
 // {
-//   isLessOrEqual(0x80000000, 0x7fffffff);
+// 	howManyBits(0x80000000);
 // }
