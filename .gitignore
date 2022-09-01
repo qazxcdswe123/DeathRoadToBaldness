@@ -12,3 +12,6 @@
 .vscode
 
 !Makefile
+
+# stupid macos dSYM folder
+*.dSYM

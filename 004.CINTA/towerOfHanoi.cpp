@@ -6,7 +6,7 @@ void solve(int n, int src, int des, int helper)
 {
     if (n == 1)
     {
-        cout << "Moving disc 1 from " << src << " to" << des << endl;
+        cout << "Moving disc 1 from " << src << " to " << des << endl;
         return;
     }
     solve(n - 1, src, helper, des);
