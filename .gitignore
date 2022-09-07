@@ -11,7 +11,11 @@
 .idea
 .vscode
 
+# cmake
 !Makefile
+build
+*.o
 
-# stupid macos dSYM folder
+# stupid macos 
 *.dSYM
+.DS_Store

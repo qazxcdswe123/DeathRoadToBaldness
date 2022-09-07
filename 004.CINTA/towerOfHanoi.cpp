@@ -1,6 +1,8 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
+int aa = 10;
 
 void solve(int n, int src, int des, int helper)
 {
@@ -19,6 +21,12 @@ int main()
 {
     int n;
     cin >> n;
-    solve(n, 1, 3, 2);
+    vector<int> vec;
+    for (int i = 0; i < n; i++)
+    {
+        vec.push_back(i + 10);
+    }
+
+    // solve(n, 1, 3, 2);
     return 0;
 }

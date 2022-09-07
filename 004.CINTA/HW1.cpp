@@ -4,7 +4,34 @@ using namespace std;
 
 bool isPowerOfTwo(int n)
 {
-    return (n & (n - 1)) == 0;
+    return (n > 0) && ((n & (n - 1)) == 0);
+}
+
+bool isEven(int n)
+{
+    return (n & 1) == 0;
+}
+
+// assuming b >= 0
+int simpleMultiplyIterative(int a, int b)
+{
+    int res = 0;
+    int multiplier = 1;
+    while (b != 0)
+    {
+        if (isEven(b))
+        {
+            multiplier *= 2;
+            b /= 2;
+        }
+        else
+        {
+            res += a * multiplier;
+            multiplier *= 2;
+            b /= 2;
+        }
+    }
+    return res;
 }
 
 int main()
@@ -15,4 +42,9 @@ int main()
 
     cout << isPowerOfTwo(notPowerOfTwo) << endl;
     cout << isPowerOfTwo(powerOfTwo) << endl;
+
+    cout << isEven(notPowerOfTwo) << endl;
+    cout << isEven(powerOfTwo) << endl;
+
+    cout << simpleMultiplyIterative(-2, 3) << endl;
 }
