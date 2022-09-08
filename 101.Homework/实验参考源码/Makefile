@@ -1,12 +1,15 @@
-forAll = ycymain.cpp 
+CC := clang
+CXX := clang++
+CFLAGS := -g -Wall
+CXXFLAGS := -g -Wall
 
-chapter2 = ch2/linearList.cpp 
+objects := ch2/linearList.o ycymain.o
 
-ch2.o: $(forAll) $(chapter2)
-	clang++ -c $(forAll) $(chapter2) 
-	
-main: ch2.o
-	clang++ -o main ch2.o
+all : $(objects)
+	$(CXX) $(CXXFLAGS) -o main $(objects)
+
+linearList.o : ch2/linearList.cpp 
+ycymain.o : ycymain.cpp
 
 .PHONY : clean
 clean :

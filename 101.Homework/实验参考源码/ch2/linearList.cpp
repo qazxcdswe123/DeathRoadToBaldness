@@ -3,7 +3,7 @@
 const int defaultSize = 100;
 
 template <class T>
-class seqList : public linearList
+class seqList : public linearList<T>
 {
 protected:
     T *element;
