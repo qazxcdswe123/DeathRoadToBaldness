@@ -19,3 +19,6 @@ build
 # stupid macos 
 *.dSYM
 .DS_Store
+
+# CSAPP lab
+*.tar
