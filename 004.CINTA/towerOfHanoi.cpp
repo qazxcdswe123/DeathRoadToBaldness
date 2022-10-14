@@ -1,32 +1,24 @@
 #include <iostream>
-#include <vector>
 
 using namespace std;
-int aa = 10;
 
-void solve(int n, int src, int des, int helper)
+void towerOfHanoi(int n, char from_rod, char to_rod, char aux_rod)
 {
-    if (n == 1)
+    if (n == 0)
     {
-        cout << "Moving disc 1 from " << src << " to " << des << endl;
         return;
     }
-    solve(n - 1, src, helper, des);
-    cout << "Moving disc " << n << "from " << 1 << " to " << des << endl;
-    solve(n - 1, helper, des, src);
-    return;
+    towerOfHanoi(n - 1, from_rod, aux_rod, to_rod);
+    cout << "Move disk " << n << " from rod " << from_rod
+         << " to rod " << to_rod << endl;
+    towerOfHanoi(n - 1, aux_rod, to_rod, from_rod);
 }
 
 int main()
 {
-    int n;
-    cin >> n;
-    vector<int> vec;
-    for (int i = 0; i < n; i++)
-    {
-        vec.push_back(i + 10);
-    }
+    int N = 4;
 
-    // solve(n, 1, 3, 2);
+    // A, B and C are names of rods
+    towerOfHanoi(N, 'A', 'C', 'B');
     return 0;
 }
