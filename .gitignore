@@ -22,3 +22,4 @@ build
 
 # CSAPP lab
 *.tar
+!README
