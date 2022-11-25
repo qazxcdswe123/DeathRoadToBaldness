@@ -22,3 +22,8 @@
 # CSAPP lab
 *.tar
 !README
+
+# Python Virtualenv
+/bin
+/lib
+pyvenv.cfg
