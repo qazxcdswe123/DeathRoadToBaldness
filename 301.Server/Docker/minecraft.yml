@@ -10,6 +10,6 @@ services:
     environment:
       - EULA=TRUE
       - TYPE=FABRIC
-      - MODRINTH_PROJECTS=lithium
+      - MODRINTH_PROJECTS=lithium,textile_backup
       - MODRINTH_DOWNLOAD_OPTIONAL_DEPENDENCIES=true
       - MODRINTH_ALLOWED_VERSION_TYPE=release
