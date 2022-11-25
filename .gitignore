@@ -27,3 +27,6 @@
 /bin
 /lib
 pyvenv.cfg
+
+# Ansible
+!hosts
