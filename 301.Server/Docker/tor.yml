@@ -14,3 +14,5 @@ services:
       - TOR_ORPort=9001
       - TOR_DirPort=9030
       - RELAY_TYPE=relay
+      - TOR_RelayBandwidthRate="1 GB"
+      - TOR_RelayBandwidthBurst="1 GB"
