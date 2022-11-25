@@ -1,0 +1,16 @@
+services:
+  tor-relay:
+    image: ilshidur/tor-relay
+    container_name: tor-relay
+    restart: unless-stopped
+    ports:
+      - "9001:9001"
+      - "9030:9030"
+    volumes:
+      - /root/docker/tor/data:/data
+    environment:
+      - TOR_NICKNAME=fwing
+      - TZ=Asia/Shanghai
+      - TOR_ORPort=9001
+      - TOR_DirPort=9030
+      - RELAY_TYPE=relay
