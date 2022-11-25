@@ -10,5 +10,5 @@ services:
     volumes:
       - /root/docker/qb/config:/config
       - /root/docker/qb/downloads:/downloads
-    networks: "host"
+    network_mode: "host"
     restart: unless-stopped
