@@ -3,9 +3,6 @@ services:
     image: ilshidur/tor-relay
     container_name: tor-relay
     restart: unless-stopped
-    ports:
-      - "9001:9001"
-      - "9030:9030"
     volumes:
       - /root/docker/tor/data:/data
     environment:
@@ -16,5 +13,5 @@ services:
       - RELAY_TYPE=relay
       - TOR_RelayBandwidthRate="1 GB"
       - TOR_RelayBandwidthBurst="1 GB"
-    networks:
+    network_mode:
       - host
