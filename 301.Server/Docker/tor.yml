@@ -16,3 +16,5 @@ services:
       - RELAY_TYPE=relay
       - TOR_RelayBandwidthRate="1 GB"
       - TOR_RelayBandwidthBurst="1 GB"
+    networks:
+      - host

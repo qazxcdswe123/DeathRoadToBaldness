@@ -7,12 +7,9 @@ services:
       - PGID=1000
       - TZ=Asia/Shanghai
       - WEBUI_PORT=8080
-      - 
     volumes:
       - /root/docker/qb/config:/config
       - /root/docker/qb/downloads:/downloads
-    ports:
-      - 8080:8080
-      - 6881:6881
-      - 6881:6881/udp
+    networks:
+      - host
     restart: unless-stopped
