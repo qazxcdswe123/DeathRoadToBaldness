@@ -1,0 +1,10 @@
+zmodule fzf
+zmodule completion
+zmodule archive
+
+zmodule kiesman99/zim-zoxide
+zmodule zsh-users/zsh-completions --fpath src
+zmodule zsh-users/zsh-syntax-highlighting
+zmodule zsh-users/zsh-autosuggestions
+zmodule romkatv/powerlevel10k --use degit
+zmodule jeffreytse/zsh-vi-mode --use degit
