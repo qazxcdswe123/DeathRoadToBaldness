@@ -4,14 +4,13 @@
 #include <stack>
 #include <cmath>
 
-using namespace std;
 // calculate using reverse polish notation
 // sample input: 0 9.9 - 10 *
 // sample input: 0 0.9999 - 1 +
 
 double calculate(string rpn)
 {
-    stack<double> double_stack;
+    std::stack<double> double_stack;
     string input = changeToRPN(rpn);
     int length = input.length();
     for (int i = 0; i < length; i++)

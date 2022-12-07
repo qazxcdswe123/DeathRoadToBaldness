@@ -74,6 +74,7 @@ def get_modular_inverse(a, m):
         return s % m
 
 
-print(get_modular_inverse(5, 11))
-print(get_modular_inverse(13, 121))
-print(get_modular_inverse(131, 1021))
+print(get_modular_inverse(5, 693))
+print(get_modular_inverse(7, 495))
+print(get_modular_inverse(9, 385))
+print(get_modular_inverse(11, 315))

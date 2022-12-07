@@ -2,8 +2,6 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
-
 // check if the input expression has paired parentheses or invalid characters
 bool checkUserInput(string input)
 {
@@ -42,7 +40,7 @@ bool checkUserInput(string input)
         }
     }
 
-    if (parentheses == 0 || have_operator == true)
+    if (parentheses == 0 || have_operator)
     {
         return true;
     }

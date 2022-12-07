@@ -3,13 +3,11 @@
 #include <cmath>
 #include "calculator.h"
 
-using namespace std;
-
 int main(void)
 {
     bool stopFlag = false;
 
-    while (stopFlag == false)
+    while (!stopFlag)
     {
         cout << "Please input the expression: ";
         string expression;

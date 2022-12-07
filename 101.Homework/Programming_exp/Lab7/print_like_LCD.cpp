@@ -3,7 +3,6 @@
 #include <string>
 #include <cmath>
 
-using namespace std;
 /*   1
    2   3
      4
@@ -30,7 +29,7 @@ void print_first_layer(string str, int length, bool is_negative)
     int i = 0;
     if (is_negative)
     {
-        cout << "  ";
+        std::cout << "  ";
         i++;
     }
 
@@ -39,19 +38,19 @@ void print_first_layer(string str, int length, bool is_negative)
         int num = str[i] - '0';
         if (str[i] == '.')
         {
-            cout << "  ";
+            std::cout << "  ";
             continue;
         }
         if (array[num][0])
         {
-            cout << " _  "; // one extra space at the end
+            std::cout << " _  "; // one extra space at the end
         }
         else
         {
-            cout << "    ";
+            std::cout << "    ";
         }
     }
-    cout << endl;
+    std::cout << endl;
 }
 
 void print_second_layer(string str, int length, bool is_negative)
@@ -59,7 +58,7 @@ void print_second_layer(string str, int length, bool is_negative)
     int i = 0;
     if (is_negative)
     {
-        cout << "_ ";
+        std::cout << "_ ";
         i++;
     }
 
@@ -67,39 +66,39 @@ void print_second_layer(string str, int length, bool is_negative)
     {
         if (str[i] == '.')
         {
-            cout << "  ";
+            std::cout << "  ";
             continue;
         }
 
         int num = str[i] - '0';
         if (array[num][1])
         {
-            cout << "|";
+            std::cout << "|";
         }
         else
         {
-            cout << " ";
+            std::cout << " ";
         }
 
         if (array[num][3])
         {
-            cout << "_";
+            std::cout << "_";
         }
         else
         {
-            cout << " ";
+            std::cout << " ";
         }
 
         if (array[num][2])
         {
-            cout << "| ";
+            std::cout << "| ";
         }
         else
         {
-            cout << "  ";
+            std::cout << "  ";
         }
     }
-    cout << endl;
+    std::cout << endl;
 }
 
 void print_third_layer(string str, int length, bool is_negative)
@@ -107,7 +106,7 @@ void print_third_layer(string str, int length, bool is_negative)
     int i = 0;
     if (is_negative)
     {
-        cout << "  ";
+        std::cout << "  ";
         i++;
     }
 
@@ -115,39 +114,39 @@ void print_third_layer(string str, int length, bool is_negative)
     {
         if (str[i] == '.')
         {
-            cout << ". ";
+            std::cout << ". ";
             continue;
         }
 
         int num = str[i] - '0';
         if (array[num][4])
         {
-            cout << "|";
+            std::cout << "|";
         }
         else
         {
-            cout << " ";
+            std::cout << " ";
         }
 
         if (array[num][6])
         {
-            cout << "_";
+            std::cout << "_";
         }
         else
         {
-            cout << " ";
+            std::cout << " ";
         }
 
         if (array[num][5])
         {
-            cout << "| ";
+            std::cout << "| ";
         }
         else
         {
-            cout << "  ";
+            std::cout << "  ";
         }
     }
-    cout << endl;
+    std::cout << endl;
 }
 
 void print_like_LCD(double num)

@@ -30,3 +30,6 @@ pyvenv.cfg
 
 # Ansible
 !hosts
+
+# CMake
+cmake-build*

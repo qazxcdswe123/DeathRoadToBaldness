@@ -4,8 +4,6 @@
 #include <ctype.h>
 #include <stack>
 
-using namespace std;
-
 // change regular expression to reverse polish notation
 int getPriority(char ch)
 {
@@ -29,7 +27,7 @@ int getPriority(char ch)
 string changeToRPN(string original)
 {
     string rpn = "";
-    stack<char> op_stack;
+    std::stack<char> op_stack;
     int length = original.length();
     for (int i = 0; i < length; i++)
     {
@@ -107,10 +105,3 @@ string changeToRPN(string original)
     }
     return rpn;
 }
-
-// int main()
-// {
-//     string input;
-//     getline(cin, input);
-//     cout << changeToRPN(input) << endl;
-// }

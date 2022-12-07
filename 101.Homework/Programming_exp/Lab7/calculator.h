@@ -1,5 +1,4 @@
 #include <string>
-using namespace std;
 
 bool checkUserInput(string input);
 double calculate(string rpn);
