@@ -1,20 +1,18 @@
 import math
-import sympy
 
 
-def prime_factors_list(number):
-    """Returns a list of prime factors of a number"""
-    for i in range(2, number + 1):
-        while number % i == 0:
-            prime_factors.append(i)
-            number //= i
-
-
-def gcd(a, b):
-    """Returns the greatest common divisor of a and b"""
-    while b:
-        a, b = b, a % b
-    return a
+def prime_factors(n):
+    i = 2
+    factors = []
+    while i * i <= n:
+        if n % i:
+            i += 1
+        else:
+            n //= i
+            factors.append(i)
+    if n > 1:
+        factors.append(n)
+    return factors
 
 
 def is_prime(number):
@@ -27,32 +25,41 @@ def is_prime(number):
     return True
 
 
-def is_primitive_root(number, prime):
-    """Returns True if number is a primitive root of the prime factors"""
-    for factor in prime_factors:
-        if factor > number:
-            break
-        if type((prime - 1) / factor) == int:
-            if pow(number, (prime - 1) // factor, prime) == 1:
-                return False
-    return True
+def find_min_generator(p):
+    # Find the prime factors of p - 1
+    factors = prime_factors(p - 1)
+    # Initialize a list to store the generators
+    generators = []
+    # Iterate through the integers from 2 to p - 1
+    for g in range(2, p):
+        # Assume that g is a generator
+        is_generator = True
+        # Check if g is a generator
+        for factor in factors:
+            # If g^((p - 1) / factor) is equal to 1 mod p, then g is not a generator
+            if pow(g, (p - 1) // factor, p) == 1:
+                is_generator = False
+                break
+        # If g is a generator, add it to the list of generators
+        if is_generator:
+            generators.append(g)
+    # Return the minimum generator
+    return min(generators)
 
 
+# Get all prime under 10000
 prime_list = []
-for i in range(2, 10000):
+for i in range(3, 10000):
     if is_prime(i):
         prime_list.append(i)
 
-prime_factors = []
-prime_factors_list(10000)
 
 dict_of_primitive_roots = {}
 
+
 for p in prime_list:
-    for i in range(2, p):
-        if is_primitive_root(i, p):
-            dict_of_primitive_roots[p] = [i]
-            break
+    dict_of_primitive_roots[p] = find_min_generator(p)
+
 
 dict_of_primitive_roots = dict(
     sorted(dict_of_primitive_roots.items(), key=lambda x: x[1]))
