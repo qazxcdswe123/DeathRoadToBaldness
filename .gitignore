@@ -9,7 +9,6 @@
 
 # editor file
 .idea
-.vscode
 
 # cmake
 !Makefile
