@@ -3,7 +3,6 @@ Description
 
 给定一张 n x n 的二元运算表 f, 其中 f_i,j 表示 ij = f_ij，问该二元运算是否构成群，如果是，输出每个数的逆元。
 
-
 Input
 第一行一个正整数 t ，表示数据组数。
 
@@ -21,38 +20,30 @@ Output
 
 using namespace std;
 
-bool isGroup(const vector<vector<int>> &v)
+bool isGroup(const vector<vector<int>> &v, int &id)
 {
-    bool hasIdentity = false;
     int n = v.size();
+	bool isGroup = false;
+	bool hasID = false;
 
-    for (int i = 0; i < n; i++)
+    for (int row = 0; row < n; row++)
     {
-        for (int j = 0; j < n; j++)
+        for (int col = 0; col < n; col++)
         {
             // check identity
-            if (!hasIdentity && v[i][j] == 1)
+            if (v[row][col] == v[col][row] || v[row][col] == col + 1)
             {
-                hasIdentity = true;
-            }
-            
-            // check associativity
-            for (int k = 0; k < n; k++)
-            {
-                if (v[i][v[j][k] - 1] != v[v[i][j] - 1][k])
-                {
-                    return false;
-                }
-            }
-            
-            // check inverse
-            if (v[i][j] == 1 && v[j][i] != 1)
-            {
-                return false;
+				if (hasID)	
+					isGroup = false;
+				else {
+					isGroup = true;
+					hasID = true;
+					id = row + 1;
+				}
             }
         }
     }
-    return hasIdentity;
+    return isGroup;
 }
 
 vector<int> getInverse(const vector<vector<int>> &v)
@@ -63,7 +54,7 @@ vector<int> getInverse(const vector<vector<int>> &v)
     {
         for (int j = 0; j < n; j++)
         {
-            if (v[i][j] == 1)
+            if (v[i][j] == v[j][i] && v[i][j] == 1)
             {
                 inverse[i] = j + 1;
                 break;
@@ -94,7 +85,8 @@ int main()
             }
         }
         
-        if (!isGroup(v))
+		int e;
+        if (!isGroup(v, e))
         {
             cout << "NO" << endl;
             continue;
@@ -105,7 +97,10 @@ int main()
             vector<int> inverse = getInverse(v);
             for (int i = 0; i < n; i++)
             {
-                cout << inverse[i] << " ";
+				if (i != n - 1)
+                	cout << inverse[i] << " ";
+				else
+					cout << inverse[i];
             }
             cout << endl;
         }
